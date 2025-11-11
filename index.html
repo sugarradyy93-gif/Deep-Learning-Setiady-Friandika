@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Tugas Deep Learning - Setiady</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: linear-gradient(135deg, #e9f0ff, #f7faff);
+      --text-color: #222;
+      --card-bg: #ffffffcc;
+      --topbar-bg: linear-gradient(90deg,  #931515, #13c687, #ff2ba7);
+      --footer-bg: rgba(134, 27, 27, 0.826);
+      --link-hover: linear-gradient(90deg, #dc1de0, #13bf8e);
+    }
+
+    /* DARK MODE VARIABLES */
+    [data-theme="dark"] {
+      --bg-main: linear-gradient(135deg, #1e1e2f, #151521);
+      --text-color: #e8e8e8;
+      --card-bg: rgba(30, 30, 40, 0.85);
+      --topbar-bg: linear-gradient(90deg, #222b45, #1a1f35);
+      --footer-bg: rgba(20, 25, 40, 0.85);
+      --link-hover: linear-gradient(90deg, #00aaff, #007bff);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-main);
+      color: var(--text-color);
+      transition: background 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    /* ==== TOPBAR ==== */
+    .topbar {
+      background: var(--topbar-bg);
+      color: white;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: 0.3s ease;
+    }
+
+    .topbar h3 {
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      margin-bottom: 4px;
+    }
+
+    .topbar p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    /* Dark mode toggle button */
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: rotate(20deg);
+    }
+
+    /* ==== SIDEBAR ==== */
+    .sidebar {
+      min-height: 82vh;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border-right: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .link-tugas {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 12px 15px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      font-weight: 500;
+    }
+
+    .link-tugas:hover {
+      background: var(--link-hover);
+      color: white;
+      transform: translateX(8px);
+      box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ==== CONTENT ==== */
+    .content {
+      background: transparent;
+      animation: fadeIn 0.6s ease;
+    }
+
+    iframe {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      transition: 0.3s;
+    }
+
+    [data-theme="dark"] iframe {
+      background: #222;
+    }
+
+    iframe:hover {
+      box-shadow: 0 0 30px rgba(0, 123, 255, 0.25);
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: var(--footer-bg);
+      color: #fff;
+      font-size: 0.85rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(6px);
+      transition: background 0.4s ease;
+    }
+
+    footer p {
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+
+    /* ==== ANIMATION ==== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <div class="topbar text-center py-3 position-relative">
+    <h3>🚀 Tugas Deep Learning</h3>
+    <p>Setiady Tri Friandika | 51422525 | 4IA03</p>
+
+    <!-- Tombol toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Ganti Mode 🌗">
+      🌙
+    </button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="d-flex">
+    <!-- SIDEBAR -->
+    <div class="col-3 sidebar p-4">
+      <h5 class="fw-bold mb-3">📘 Daftar Tugas</h5>
+      <a class="link-tugas my-2" onclick="loadPage('calculator')">🧮 Kalkulator Logika</a>
+      <a class="link-tugas my-2" onclick="loadPage('bidirectional')">🧩 Prediksi Kata (Bidirectional)</a>
+      <a class="link-tugas my-2" onclick="loadPage('saham')">📈 Prediksi Harga Saham</a>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="col-9 content p-4">
+      <iframe id="contentFrame" class="w-100" style="height:80vh;"></iframe>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-2 fixed-bottom">
+    <p>© 2025 <b>Setiady Tri Friandika</b> — Tugas Deep Learning</p>
+  </footer>
+
+  <script>
+  function loadPage(page) {
+    const frame = document.getElementById("contentFrame");
+    frame.style.opacity = 0;
+    setTimeout(() => {
+      frame.src = `/${page}`;  // ✅ load dari route Flask, bukan folder
+      frame.style.opacity = 1;
+    }, 200);
+  }
+
+  // Dark mode toggle
+  const toggleBtn = document.getElementById("themeToggle");
+  const root = document.documentElement;
+
+  function setTheme(mode) {
+    root.setAttribute("data-theme", mode);
+    localStorage.setItem("theme", mode);
+    toggleBtn.textContent = mode === "dark" ? "☀️" : "🌙";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    setTheme(current === "dark" ? "light" : "dark");
+  });
+
+  const saved = localStorage.getItem("theme") || "light";
+  setTheme(saved);
+  </script>
+
+</body>
+</html>

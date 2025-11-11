@@ -1,0 +1,8 @@
+.link-tugas {
+    cursor: pointer;
+    color: #000000;
+    text-decoration: none;
+}
+.link-tugas:hover {
+    text-decoration: underline;
+}
